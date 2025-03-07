@@ -25,8 +25,6 @@ struct ARViewContainer: UIViewRepresentable {
 }
 
 struct StartView: View {
-    //@State var navTarget: String? = nil
-    
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: 100) {
@@ -197,7 +195,6 @@ struct EquationView: View {
                 Button(action: {
                     if (questionNum == 10) {
                         print("FINISHED!")
-                        //NavigationLink(destination: LevelsView())
                     }
                     else {
                         arView.reset(addition: true, subtraction: false) // addition vs subtraction
@@ -211,26 +208,6 @@ struct EquationView: View {
                         .padding()
                 })
                 .navigationBarHidden(true)
-                /*if (questionNum == 10) { // finishes after 10 questions
-                    NavigationLink(destination: LevelsView()) {
-                        Image(systemName: "arrow.forward.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .padding()
-                    }
-                    .navigationBarHidden(true)
-                }
-                else {
-                    NavigationLink(destination: AdditionView(questionNum: questionNum + 1)) {
-                        Image(systemName: "arrow.forward.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .padding()
-                    }
-                    .navigationBarHidden(true)
-                }*/
             } // hide navigation bar
         }
         else if (type == "-") {
@@ -240,7 +217,6 @@ struct EquationView: View {
                 Button(action: {
                     if (questionNum == 10) {
                         print("FINISHED!")
-                        //NavigationLink(destination: LevelsView())
                     }
                     else {
                         arView.reset(addition: false, subtraction: true) //addition vs subtraction
@@ -254,32 +230,10 @@ struct EquationView: View {
                         .padding()
                 })
                 .navigationBarHidden(true)
-                /*if (questionNum == 10) { // finishes after 10 questions
-                    NavigationLink(destination: LevelsView()) {
-                        Image(systemName: "arrow.forward.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .padding()
-                    }
-                    .navigationBarHidden(true)
-                }
-                else {
-                    NavigationLink(destination: SubtractionView(questionNum: questionNum + 1)) {
-                        Image(systemName: "arrow.forward.circle")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50, height: 50, alignment: .center)
-                            .padding()
-                    }
-                    .navigationBarHidden(true)
-                }*/
             }
         }
     }
 }
-
-// second, third, etc. ARViews increasingly glitchy and eventually crashes, possibly fixed?
 
 #if DEBUG
 struct ContentView_Previews : PreviewProvider {
